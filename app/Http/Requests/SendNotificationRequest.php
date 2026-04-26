@@ -16,7 +16,7 @@ class SendNotificationRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'user_id' => ['required_without:user_ids', 'exists:users,id'],
+      'user_id' => ['required', 'exists:users,id'],
       'user_ids' => ['nullable', 'array', 'min:1'],
       'user_ids.*' => ['exists:users,id'],
       'title' => ['required', 'string', 'max:255'],
